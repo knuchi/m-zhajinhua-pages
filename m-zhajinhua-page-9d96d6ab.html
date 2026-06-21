@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炸金花 · 知识库与收藏指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fcf1e0 0%, #f9dfc8 40%, #f3cdb0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #2d2a24;
+        }
+        .page-wrap {
+            max-width: 980px;
+            width: 100%;
+        }
+        .hero-card {
+            background: rgba(255, 248, 238, 0.72);
+            backdrop-filter: blur(4px);
+            border-radius: 36px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 24px rgba(140, 80, 20, 0.08), 0 2px 6px rgba(180, 100, 30, 0.04);
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #7b4a2a;
+            margin-bottom: 0.4rem;
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #8f6a4b;
+            border-top: 1px solid #e3cbb4;
+            display: inline-block;
+            padding-top: 0.6rem;
+            margin-top: 0.2rem;
+        }
+        .hero-desc {
+            max-width: 600px;
+            margin: 1.4rem auto 0.2rem;
+            color: #4d3b2b;
+            font-weight: 380;
+        }
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+        .card-module {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 6px 18px rgba(110, 60, 20, 0.06);
+            transition: box-shadow 0.2s;
+        }
+        .card-module:hover {
+            box-shadow: 0 10px 26px rgba(130, 70, 25, 0.08);
+        }
+        .module-label {
+            display: inline-block;
+            background: #ebd5c0;
+            color: #5e3f29;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .module-title {
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: #6d4f36;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #dbb594;
+            padding-left: 0.8rem;
+        }
+        .module-text {
+            margin: 0.8rem 0 0.2rem;
+            color: #3d342b;
+        }
+        .module-text p {
+            margin-bottom: 0.8rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.6rem;
+            margin: 0.8rem 0 0.2rem;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.98rem;
+            color: #4f3d2d;
+        }
+        .feature-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #b28a6b;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+        .info-badge {
+            display: inline-block;
+            background: #efe1d3;
+            border-radius: 50px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            color: #5a4030;
+            margin-right: 0.4rem;
+        }
+        .faq-item {
+            margin: 1rem 0 0.6rem;
+            border-bottom: 1px dashed #ded3c7;
+            padding-bottom: 0.8rem;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 550;
+            color: #6a4f39;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .faq-q::before {
+            content: "◆";
+            color: #c6a788;
+            font-size: 0.8rem;
+        }
+        .faq-a {
+            margin: 0.2rem 0 0 1.1rem;
+            color: #4b3c2e;
+            font-size: 0.95rem;
+        }
+        .link-button-like {
+            display: inline-block;
+            background: #fff0e3;
+            color: #734e32;
+            text-decoration: none;
+            font-weight: 490;
+            padding: 0.3rem 1.4rem;
+            border-radius: 60px;
+            border: 1px solid #dbbc9f;
+            transition: background 0.15s, border-color 0.15s;
+            margin: 0.1rem 0;
+        }
+        .link-button-like:hover {
+            background: #f7e3d0;
+            border-color: #b48b6c;
+        }
+        .inline-link {
+            color: #7f5c3f;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #ccb09a;
+            font-weight: 450;
+            transition: color 0.1s;
+        }
+        .inline-link:hover {
+            color: #a06946;
+            text-decoration-color: #a06946;
+        }
+        .note-box {
+            background: #f6ede4;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.2rem 0 0.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .note-box span {
+            color: #5e4534;
+        }
+        .btn-soft {
+            background: #e3cdba;
+            color: #3f2e21;
+            border: none;
+            border-radius: 60px;
+            padding: 0.4rem 1.6rem;
+            font-weight: 480;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.12s;
+            white-space: nowrap;
+        }
+        .btn-soft:hover {
+            background: #d4b99f;
+        }
+        .footer-note {
+            margin-top: 2.6rem;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #7d6957;
+            letter-spacing: 0.3px;
+        }
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero-card {
+                padding: 1.6rem 1rem;
+                border-radius: 28px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .card-module {
+                padding: 1.4rem 1.2rem;
+                border-radius: 24px;
+            }
+            .module-title {
+                font-size: 1.25rem;
+            }
+            .feature-list {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .note-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 欢迎 / 再次访问 -->
+    <div class="hero-card">
+        <div class="hero-title">🃏 又见面了</div>
+        <div class="hero-sub">· 收藏夹里的老朋友 ·</div>
+        <div class="hero-desc">
+            无论你是偶然重访，还是一直把它放在书签栏 —— 这里始终有一副牌、几套规则和无数种可能。
+        </div>
+    </div>
+
+    <!-- 内容网格：目录感布局 -->
+    <div class="content-grid">
+
+        <!-- 板块1：知识库 · 核心说明 -->
+        <div class="card-module">
+            <div class="module-label">📖 说明区</div>
+            <div class="module-title">关于 <a href="https://m--zhajinhua.com" class="inline-link">炸金花</a> 的知识库</div>
+            <div class="module-text">
+                <p>这里并不是一个游戏客户端，而是一个围绕“炸金花”整理的信息集合。从基础牌型、地区变体到常见策略讨论，你都可以在这里找到线索。适合那些想了解规则细节、比牌逻辑或者单纯想回味经典玩法的朋友。</p>
+                <p>如果你已经熟悉基本玩法，也可以把这里当作一个备忘工具——随时回来查查牌型大小、特殊约定或者不同房间的习惯差异。</p>
+            </div>
+        </div>
+
+        <!-- 板块2：特点与场景（目录感卡片） -->
+        <div class="card-module">
+            <div class="module-label">🧩 特点 · 场景</div>
+            <div class="module-title">常看常新的几个角落</div>
+            <ul class="feature-list">
+                <li><strong>牌型速查</strong> — 豹子、同花顺、金花、顺子…… 附简明对比表</li>
+                <li><strong>术语小词典</strong> — “闷牌”“暗牌”“比牌”“喜钱” 一网打尽</li>
+                <li><strong>玩法备忘录</strong> — 各地常见规则微调，适合聚会前扫一眼</li>
+                <li><strong>策略随想</strong> — 一些基于概率和经验的闲聊，非攻略</li>
+                <li><strong>收藏提醒</strong> — 把 <a href="https://m--zhajinhua.com" class="inline-link">炸金花</a> 加入书签，下次想查随时可来</li>
+            </ul>
+            <div style="margin-top:0.6rem; font-size:0.9rem; color:#6c5845;">
+                <span class="info-badge">📌 持续更新</span> 内容会不定期补充，但始终保持精简克制。
+            </div>
+        </div>
+
+        <!-- 板块3：提示区 · 再次访问 & 收藏 -->
+        <div class="card-module">
+            <div class="module-label">💡 提示区</div>
+            <div class="module-title">方便再次找到这里</div>
+            <div class="module-text">
+                <p>如果你是通过搜索或朋友推荐第一次来到这个页面，可以花十几秒把它加入浏览器书签。下次想查关于炸金花的任何信息，直接打开书签就好，不需要重新搜索。</p>
+                <p>如果你是再次访问的老朋友，应该已经注意到页面的内容结构偶尔会微调——这是刻意保持的节奏，让每次回来都有点新鲜感，但核心信息一直稳定。</p>
+                <div class="note-box">
+                    <span>🔖 建议收藏方式：</span>
+                    <span style="background:#f1e0d1; border-radius:30px; padding:0.2rem 1rem;">按 Ctrl+D (Windows) / ⌘+D (Mac)</span>
+                    <span style="color:#5e4a38; font-size:0.9rem;">或使用浏览器菜单</span>
+                </div>
+                <p style="margin-top:0.6rem;">另外，如果你在移动设备上浏览，也可以把此页添加到主屏幕，这样图标就在桌面上了。</p>
+            </div>
+        </div>
+
+        <!-- 板块4：相关信息区 + FAQ 摘要 -->
+        <div class="card-module">
+            <div class="module-label">🔍 相关信息区</div>
+            <div class="module-title">你可能想知道的</div>
+            <div class="faq-item">
+                <div class="faq-q">这个页面和“游戏大厅”有什么区别？</div>
+                <div class="faq-a">这里不是游戏平台，不提供充值、对局或房间。它更像一本关于炸金花的小册子，侧重知识、规则与文化碎片。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">内容会过时吗？规则那么多版本怎么办？</div>
+                <div class="faq-a">我们尽量收录通用度较高的基础规则，同时注明常见变体。如果你发现某条信息需要更新，欢迎通过站点上的渠道反馈。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">为什么强调“再次访问”和“收藏”？</div>
+                <div class="faq-a">因为这类知识适合反复查阅。把 <a href="https://m--zhajinhua.com" class="inline-link">炸金花</a> 放在书签里，无论是朋友聚会前快速确认规则，还是自己琢磨牌型，都能省去重新搜索的精力。</div>
+            </div>
+            <div style="margin-top:0.8rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+                <span class="btn-soft">📋 牌型备忘</span>
+                <span class="btn-soft">📌 术语卡片</span>
+                <span class="btn-soft">🔄 最近更新</span>
+            </div>
+        </div>
+
+        <!-- 一个温和的提示引导（不使用硬广词汇） -->
+        <div style="background: transparent; margin-top: -0.2rem; text-align: center;">
+            <span style="background: #f2e3d6; padding: 0.45rem 2rem; border-radius: 60px; display: inline-block; font-size: 0.9rem; color: #5c4636;">
+                ✦ 常来常新 · 记得收藏 ✦
+            </span>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <a href="https://m--zhajinhua.com" class="link-button-like" style="font-weight:450;">炸金花</a>
+        <span style="display:inline-block; margin:0 0.6rem;">·</span>
+        内容持续整理中 · 保持温和与真实
+    </div>
+
+</div>
+</body>
+</html>
